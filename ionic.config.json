@@ -1,0 +1,7 @@
+{
+  "name": "test-cordova-marketingcloudsdk",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
