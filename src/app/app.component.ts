@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { FirebaseMessaging } from '@ionic-native/firebase-messaging/ngx';
-declare let MCCordovaPlugin;
 
 @Component({
   selector: 'app-root',
@@ -27,7 +26,7 @@ export class AppComponent {
           false
         );
 
-        ( window as any).plugins.EvergageBnextIntegration.setUserId("14092022", '', '', '');
+        ( window as any).plugins.EvergageBnextIntegration.setUserId("3975118", 'rpaez@bnext.mx', 'Daniel', 'Paez');
 
         ( window as any).plugins.EvergageBnextIntegration.viewProduct(
           '29011892',
@@ -46,17 +45,6 @@ export class AppComponent {
   sendEventNotification(allow: string){
     if(allow ==='true'){
       this.callFirebase();
-      MCCordovaPlugin.enablePush(success => {
-        console.log('Alfredo: '+ success);
-      }, error => {
-        console.log('Alfredo: ', error);
-      });
-
-      MCCordovaPlugin.enableVerboseLogging(success => {
-        console.log('Alfredo: '+ success);
-      }, error => {
-        console.log('Alfredo: '+ error);
-      });
 
     }
   }
@@ -100,16 +88,7 @@ export class AppComponent {
     this.token = token;
     console.log('Alfredo: '+token);
 
-    MCCordovaPlugin.setAttribute('pushToken', this.token, result => {
-      console.log('Alfredo: '+result);
-    });
-
-    MCCordovaPlugin.setAttribute('token', this.token, result => {
-      console.log('Alfredo: '+result);
-    });
-
-    MCCordovaPlugin.setAttribute('firebaseToken', this.token, result => {
-      console.log('Alfredo: '+result);
-    });
+    ( window as any).plugins.Sfmcsdk.enableDebugger();
+    ( window as any).plugins.Sfmcsdk.setContactKey('GLP484|' + '3975118');
   }
 }
